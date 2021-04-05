@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+body {
+    background-color: rgb(209, 222, 223);
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-group {
+    margin: 1em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color:rgb(207, 240, 214);
+    cursor: pointer;
+    border-radius: 0.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+    background-color:rgb(181, 233, 192);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+    max-width: 900px;
+    margin: 1em 2em;
+}
+
+.flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    align-items: center;
+    justify-self: center;
+}
+
+.flashcard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 5px 2px grey;
+    background-color: white;
+    margin: 1em;
+    transform: rotateY(var(--rotate, 0)) scale(var(--zoom, 1));
+    transform-style: preserve-3d;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.flashcard:hover {
+    --zoom: 1.1;
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1em;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+}
+
+.flashcard-flip {
+    --rotate: 180deg;
+}
+
+.flashcard-options {
+    padding-top: 0.5em;
+    font-size: 0.75rem;
+    color: #555;
+}
+
+.flashcard-option {
+    padding-top: 0.2em;
 }
